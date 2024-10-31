@@ -8,6 +8,21 @@ win.bgcolor("black")
 win.setup(width=600, height=800)
 win.tracer(0)
 
+#Score
+
+def update_score():
+    score_display.clear()
+    score_display.write("Score: {}".format(score), align = "left",font=("Courier", 12, normal))
+    
+score = 0
+score_display = turtle.Turtle()
+score_display.speed(0)
+score_display.color("white")
+score_display.penup()
+score_display.hideturtle()
+score_display.goto(-290, 260)
+update_score()
+
 #Player 
 
 player = turtle.Turtle()
@@ -104,4 +119,16 @@ while True:
         y = bullet.ycor()
         y += bullet_speed
         bullet.sety(y)
+        #Check hit on invader 
+        for invader in invaders:
+            if bullet.distance(invader) < 15:
+                bullet.hideturtle()
+                bullet_state = "ready"
+                x = random.randint(-290, 290)
+                y = random.randint(100,250)
+                invader.goto(x,y)
+                score = +10
+            if y >290:
+                bullet.hideturtle()
+                bullet_state = "ready"
     win.update()
