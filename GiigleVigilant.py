@@ -12,7 +12,7 @@ win.tracer(0)
 
 def update_score():
     score_display.clear()
-    score_display.write("Score: {}".format(score), align = "left",font=("Courier", 12, normal))
+    score_display.write("Score: {}".format(score), align = "left",font=("Courier", 12, "normal"))
     
 score = 0
 score_display = turtle.Turtle()
