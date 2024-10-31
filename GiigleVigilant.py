@@ -67,13 +67,13 @@ invaders = []
 for _ in range(num_invaders):
     invader = turtle.Turtle()
     invader.shape("square")
-    invader.color(red)
+    invader.color("red")
     invader.penup()
     invader.speed(0)
     x = random.randint(-290, 290)
     y = random.randint(100, 250)
     invaders.append(invader)
-    
+
 while True:
     if bullet_state == "fire":
         y = bullet.ycor()
