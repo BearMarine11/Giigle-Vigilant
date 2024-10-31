@@ -24,7 +24,7 @@ def move_left():
     x += player_speed
     if x < -290:
         x = -290
-player.setx(x)
+    player.setx(x)
 
 def move_right():
     x = player.xcor()
