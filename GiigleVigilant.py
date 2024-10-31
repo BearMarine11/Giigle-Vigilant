@@ -72,6 +72,7 @@ for _ in range(num_invaders):
     invader.speed(0)
     x = random.randint(-290, 290)
     y = random.randint(100, 250)
+    invader.goto(x,y)
     invaders.append(invader)
 
 while True:
