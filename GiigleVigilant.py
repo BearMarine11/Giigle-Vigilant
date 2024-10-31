@@ -1,6 +1,7 @@
 import turtle
 import random
 
+
 win = turtle.Screen()
 win.title("Giigle Vigilant")
 win.bgcolor("black")
@@ -49,7 +50,7 @@ win.onkey(move_left, "Left")
 win.onkey(move_right, "Right")
 win.onkey(fire_bullet, "space")
 
-#Player arms
+#Player guns
 
 bullet = turtle.Turtle()
 bullet.shape("circle")
@@ -74,9 +75,33 @@ for _ in range(num_invaders):
     y = random.randint(100, 250)
     invader.goto(x,y)
     invaders.append(invader)
+invader_speed = 2
+
+#Invaders movement
+
+def move_invaders():
+    for invader in invaders:
+        y = invader.ycor()
+        y -= invader_speed
+        invader.sety(y)
+        if player.distance(invader)<20:
+            player.hideturtle()
+            invader.hideturtle()
+            print("GAME OVER!!!")
+            win.bye()
+        if y < -290:
+            player.hideturtle()
+            invader.hideturtle()
+            print("GAME OVER!!!")
+            win.bye()
+    win.update()
+    win.ontimer(move_invaders, 100)
+    
+move_invaders()
 
 while True:
     if bullet_state == "fire":
         y = bullet.ycor()
         y += bullet_speed
+        bullet.sety(y)
     win.update()
