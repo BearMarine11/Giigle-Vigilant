@@ -10,7 +10,7 @@ win.tracer(0)
 #Player 
 
 player = turtle.Turtle()
-player.shape("Bear")
+player.shape("turtle")
 player.color("orange")
 player.penup()
 player.speed(0)
