@@ -24,14 +24,14 @@ def move_left():
     x -= player_speed
     if x < -290:
         x = -290
-    player.setx()
+    player.setx(x)
 
 def move_right():
     x = player.xcor()
     x += player_speed
     if x > 290:
         x = 290
-    player.setx()
+    player.setx(x)
 
 def fire_bullet():
     global bullet_state
